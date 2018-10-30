@@ -20,7 +20,7 @@ public class create_notification_binding1 {
         listSendTo.add("bill");
         Notification notification =
                 // Notification.creator("ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                Notification.creator("IS3a46cc3e6ca7a1b8bd7aea51c875d33a")
+                Notification.creator(System.getenv("NOTIFY_SERVICE_SID"))
                         .setBody("Hello Bob")
                         // .setIdentity(Promoter.listOfOne("00000001"))
                         .setIdentity(listSendTo

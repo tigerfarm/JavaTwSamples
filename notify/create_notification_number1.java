@@ -20,7 +20,7 @@ public class create_notification_number1 {
         Notification notification
                 = // Notification.creator("ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
                 Notification
-                        .creator("IS3a46cc3e6ca7a1b8bd7aea51c875d33a")
+                        .creator(System.getenv("NOTIFY_SERVICE_SID"))
                         // .setBody("Knok-Knok! This is a Notify SMS")
                         .setBody("message 1.1")
                         .setToBinding(

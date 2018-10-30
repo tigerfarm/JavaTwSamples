@@ -14,7 +14,7 @@ public class create_service {
 
         Service service = Service.creator()
                 // .setMessagingServiceSid("MGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                .setMessagingServiceSid("MG507899be5f0b346466b088f148b94104")
+                .setMessagingServiceSid(System.getenv("MESSAGING_SERVICE_SID"))
                 .setFriendlyName("My Notify Service")
                 .create();
 

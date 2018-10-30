@@ -14,7 +14,7 @@ public class create_binding {
 
         Binding binding = Binding.creator(
                 // "ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-                "IS3a46cc3e6ca7a1b8bd7aea51c875d33a",
+                System.getenv("NOTIFY_SERVICE_SID"),
                 // "00000001",
                 "bill",
                 Binding.BindingType.SMS,

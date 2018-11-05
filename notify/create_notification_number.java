@@ -1,8 +1,9 @@
 package notify;
 
 import com.twilio.Twilio;
-import com.twilio.converter.Promoter;
 import com.twilio.rest.notify.v1.service.Notification;
+import java.util.ArrayList;
+import java.util.List;
 
 public class create_notification_number {
 
@@ -13,16 +14,14 @@ public class create_notification_number {
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
+        List<String> listSendTo = new ArrayList<>();
+        listSendTo.add("{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER1") + "\"}");
+        listSendTo.add("{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER4") + "\"}");
         Notification notification
-                = // Notification.creator("ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
-                Notification
+                = Notification
                         .creator(System.getenv("NOTIFY_SERVICE_SID"))
-                        // .setBody("Knok-Knok! This is a Notify SMS")
-                        .setBody("message 1.1") // .setToBinding(Promoter.listOfOne("{\"binding_type\":\"sms\", \"address\":\"+1651000000000\"}"))
-                        .setToBinding(Promoter.listOfOne(
-                                "{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER4") + "\"}"
-                        )).create();
-
+                        .setBody("Notify message 1.1")
+                        .setToBinding( listSendTo ).create();
         System.out.print("+ Notification SID: " + notification.getSid());
         System.out.print(", Text: " + notification.getBody());
         System.out.print(", Date: " + notification.getDateCreated());

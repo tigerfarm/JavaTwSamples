@@ -1,8 +1,9 @@
 package notify;
 
 import com.twilio.Twilio;
-import com.twilio.converter.Promoter;
 import com.twilio.rest.notify.v1.service.Notification;
+import java.util.ArrayList;
+import java.util.List;
 
 public class create_notification_binding {
 
@@ -13,14 +14,13 @@ public class create_notification_binding {
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
+        List<String> listSendTo = new ArrayList<>();
+        listSendTo.add("bob");
+        listSendTo.add("bill");
         Notification notification =
-                // Notification.creator("ISXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
                 Notification.creator(System.getenv("NOTIFY_SERVICE_SID"))
-                        .setBody("Hello Bob")
-                        // .setIdentity(Promoter.listOfOne("00000001"))
-                        .setIdentity(Promoter.listOfOne("bob")
-                    ).create();
-
+                        .setBody("Hello all.")
+                        .setIdentity( listSendTo ).create();
         // Immediately returned values:
         System.out.print("+ Notification SID: " + notification.getSid());
         System.out.print(", Text: " + notification.getBody());

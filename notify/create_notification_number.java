@@ -17,6 +17,7 @@ public class create_notification_number {
         List<String> listSendTo = new ArrayList<>();
         listSendTo.add("{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER1") + "\"}");
         listSendTo.add("{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER4") + "\"}");
+        listSendTo.add("{\"binding_type\":\"sms\", \"address\":\"" + System.getenv("PHONE_NUMBER4") + "\"}");
         Notification notification
                 = Notification
                         .creator(System.getenv("NOTIFY_SERVICE_SID"))

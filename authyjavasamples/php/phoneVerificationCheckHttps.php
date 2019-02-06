@@ -15,7 +15,6 @@ class HTTPRequester {
 }
 
 echo '+++ Start.';
-
 $authyApiKey = getenv("AUTHY_API_KEY");
 $authyPhoneNumber = getenv("AUTHY_PHONE_NUMBER1");
 $authyCountryCode = getenv('AUTHY_PHONE_COUNTRYCODE');

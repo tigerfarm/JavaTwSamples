@@ -4,15 +4,15 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 
-public class send_sms {
+public class send_sms_alphnumeric {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
 
     public static void main(String[] args) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        String fromPhoneNumber = System.getenv("PHONE_NUMBER2");
-        String toPhoneNumber = System.getenv("PHONE_NUMBER3");
+        String fromPhoneNumber = "alph";        // Alphanumeric sender id
+        String toPhoneNumber = System.getenv("PHONE_NUMBER_UK");
         String theMsg = "This is the ship that made the Kessel Run in fourteen parsecs?";
         Message message
                 = Message.creator(

@@ -10,6 +10,7 @@ import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.joda.time.DateTime;
+import com.google.common.collect.Range;
 
 public class SmsMsgListDate {
 
@@ -24,6 +25,9 @@ public class SmsMsgListDate {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         String thisPhoneNumber = System.getenv("PHONE_NUMBER2");
+        Range<DateTime> rangeDateSent;
+        rangeDateSent = null;
+        rangeDateSent.lowerEndpoint();
 
         System.out.println("++ List inbound messages: " + thisPhoneNumber);
         messages = Message.reader()

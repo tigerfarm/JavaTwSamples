@@ -2,7 +2,9 @@
 
 ## Java Programs using the Twilio Java Helper Library
 
- [Chat](https://github.com/tigerfarm/JavaTwSamples/tree/master/chat)
+[Authy developer](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples)
+
+[Chat](https://github.com/tigerfarm/JavaTwSamples/tree/master/chat)
 
 [Messaging](https://github.com/tigerfarm/JavaTwSamples/tree/master/messaging)
 

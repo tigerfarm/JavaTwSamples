@@ -2,13 +2,19 @@
 
 ## Java Programs using the Twilio Java Helper Library
 
-    [Chat](https://github.com/tigerfarm/JavaTwSamples/tree/master/chat)
-    [Messaging](https://github.com/tigerfarm/JavaTwSamples/tree/master/messaging)
-    [Using a Messaging Service](https://github.com/tigerfarm/JavaTwSamples/tree/master/messaging_service)
-    [Notify](https://github.com/tigerfarm/JavaTwSamples/tree/master/notify)
-    [Proxy](https://github.com/tigerfarm/JavaTwSamples/tree/master/proxy)
-    [SIP Domain](https://github.com/tigerfarm/JavaTwSamples/tree/master/sipdomain)
-    [Voice](https://github.com/tigerfarm/JavaTwSamples/tree/master/voice)
+ [Chat](https://github.com/tigerfarm/JavaTwSamples/tree/master/chat)
+
+[Messaging](https://github.com/tigerfarm/JavaTwSamples/tree/master/messaging)
+
+[Using a Messaging Service](https://github.com/tigerfarm/JavaTwSamples/tree/master/messaging_service)
+
+[Notify](https://github.com/tigerfarm/JavaTwSamples/tree/master/notify)
+
+[Proxy](https://github.com/tigerfarm/JavaTwSamples/tree/master/proxy)
+
+[SIP Domain](https://github.com/tigerfarm/JavaTwSamples/tree/master/sipdomain)
+
+[Voice](https://github.com/tigerfarm/JavaTwSamples/tree/master/voice)
 
 
 ## Java Programs without using the Twilio Java Helper Library

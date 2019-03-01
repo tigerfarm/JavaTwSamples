@@ -1,8 +1,9 @@
 # Sample Twilio REST HTTP Request programs
 
-## Java Programs using the Twilio Java Helper Library
+This repository was started for my Authy and phone verification programs.
+I have since added Java programs for other Twilio products.
 
-[Authy developer](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples)
+## Java Programs using the Twilio Java Helper Library
 
 [Chat](https://github.com/tigerfarm/JavaTwSamples/tree/master/chat)
 
@@ -34,5 +35,19 @@ TwVoiceCallSay.java : Make a Twilio request to make an outbound call, using twil
 PrintJson.java : Pretty print JSON data
 PrintXml.java : Pretty print XML data
 ````
+
+## Twilio Security and Authy Developer Programs
+
+[Authy developer Java programs](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples)
+
+[Authy developer without using the Twilio Java Helper Library](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples.NoHelperLibrary)
+
+[Supporting Java libraries](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples.lib)
+
+[Phone verification Node.js programs](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples.node)
+
+[Phone verification PHP programs](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples.php)
+
+[Authy PHP programs](https://github.com/tigerfarm/JavaTwSamples/tree/master/authyjavasamples.php.Authy)
 
 Cheers...

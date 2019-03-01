@@ -12,7 +12,7 @@ public class GetMessages {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
-    public static final String SERVICE_SID = "ISd5c080247aaa4200a730da6c6ea08990";   // chatService1
+    public static final String SERVICE_SID = System.getenv("CHAT_SERVICE_SID");
     public static final String CHANNEL_SID = "CHcca2f11dcf0b430eb75444ce0d95542f";   // mychannel1
 
     public static void main(String[] args) {

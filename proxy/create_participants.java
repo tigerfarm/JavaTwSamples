@@ -14,8 +14,8 @@ public class create_participants {
         // https://www.twilio.com/docs/proxy/api/participant
         Participant participant = Participant.creator(
                 System.getenv("PROXY_SERVICE_SID"),
-                "KC5a322db63efc5c01c42a90b91d2bac9c",
-                System.getenv("PHONE_NUMBER3")
+                System.getenv("PROXY_SESSION_SID"),
+                System.getenv("PHONE_NUMBER3")  // Participant's actual phone number
         )
                 .setFriendlyName("Alice").create();
 

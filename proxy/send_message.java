@@ -13,8 +13,8 @@ public class send_message {
 
         MessageInteraction messageInteraction = MessageInteraction.creator(
                 System.getenv("PROXY_SERVICE_SID"),
-                "KC5a322db63efc5c01c42a90b91d2bac9c",
-                "KPf371f33997341c7e12130ab80eed5407",
+                System.getenv("PROXY_SESSION_SID"),
+                System.getenv("PROXY_PARTICIPANT_SID"),
                 "Reply to this message to chat!")
             .create();
 

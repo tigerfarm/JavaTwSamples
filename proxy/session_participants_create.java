@@ -4,7 +4,7 @@ import com.twilio.Twilio;
 import com.twilio.exception.ApiException;
 import com.twilio.rest.proxy.v1.service.session.Participant;
 
-public class create_participants {
+public class session_participants_create {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");

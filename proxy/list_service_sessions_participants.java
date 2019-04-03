@@ -5,7 +5,7 @@ import com.twilio.base.ResourceSet;
 import com.twilio.rest.proxy.v1.service.Session;
 import com.twilio.rest.proxy.v1.service.session.Participant;
 
-public class list_sessions_participants {
+public class list_service_sessions_participants {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");

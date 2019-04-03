@@ -2,9 +2,9 @@ package proxy;
 
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
-import com.twilio.rest.proxy.v1.service.PhoneNumber;
+import com.twilio.rest.proxy.v1.service.Session;
 
-public class list_proxy_service_phone_numbers {
+public class session_list {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
@@ -14,12 +14,12 @@ public class list_proxy_service_phone_numbers {
 
         // https://www.twilio.com/docs/proxy/api/phone-number
         String serviceSid = System.getenv("PROXY_SERVICE_SID");
-        ResourceSet<PhoneNumber> items = PhoneNumber.reader(serviceSid)
+        ResourceSet<Session> items = Session.reader(serviceSid)
                 .read();
-        System.out.println("+ List phone numbers for Proxy service: " + serviceSid);
-        for (PhoneNumber item : items) {
+        System.out.println("+ List sessions for Proxy service: " + serviceSid);
+        for (Session item : items) {
             System.out.println(
-                    "++ " + item.getSid()
+                    "++ " + item.getSid() + ", " + item.getUniqueName()
             );
         }
 

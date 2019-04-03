@@ -4,7 +4,7 @@ import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.proxy.v1.Service;
 
-public class list_services {
+public class service_list {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");

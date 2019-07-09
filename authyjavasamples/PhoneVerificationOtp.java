@@ -1,6 +1,6 @@
 /*
 To run:
-java -cp AuthyJavaSamples.jar authyjavasamples.PhoneVerificationVerify
+java -cp AuthyJavaSamples.jar authyjavasamples.PhoneVerificationOtp
 
 Based on:
     https://www.twilio.com/docs/verify
@@ -14,17 +14,33 @@ Libraries:
 package authyjavasamples;
 
 import com.authy.AuthyApiClient;
+import com.authy.api.Params;
 import com.authy.api.Verification;
 import java.io.DataInputStream;
 
-public class PhoneVerificationVerify {
+public class PhoneVerificationOtp {
 
     // -------------------------------------------------------------------------
     private static final String AUTHY_API_KEY = System.getenv("AUTHY_API_KEY");
+    private static final String PARAM_VIA = "sms";    // <sms|call>
     private static final String PARAM_COUNTRYCODE = System.getenv("AUTHY_PHONE_COUNTRYCODE");
     private static final String PARAM_PHONENUMBER = System.getenv("AUTHY_PHONE_NUMBER1");
     // -------------------------------------------------------------------------
     private AuthyApiClient authyApiClient = new AuthyApiClient(AUTHY_API_KEY);
+
+    public boolean sendOTP(String countryCode, String phoneNumber, String via) throws Exception {
+        Params params = new Params();
+        params.setAttribute("code_length", "4");
+        Verification verification = authyApiClient.getPhoneVerification().start(
+                phoneNumber, countryCode, via, params
+        );
+        if (!verification.isOk()) {
+            logAndThrow("sendOTP, Error: " + verification.getMessage());
+            return false;
+        }
+        System.out.println("+ sendOTP, success: " + verification.getMessage());
+        return true;
+    }
 
     public void verifyOTP(String countryCode, String phoneNumber, String token) throws Exception {
         Verification verification = authyApiClient.getPhoneVerification().check(
@@ -37,7 +53,7 @@ public class PhoneVerificationVerify {
         System.out.println("+ verifyOTP, success: " + verification.getMessage());
     }
 
-    public PhoneVerificationVerify(AuthyApiClient authyApiClient) {
+    public PhoneVerificationOtp(AuthyApiClient authyApiClient) {
         this.authyApiClient = authyApiClient;
     }
 
@@ -47,8 +63,13 @@ public class PhoneVerificationVerify {
 
     public static void main(String[] args) {
         System.out.println("+++ Start.");
-        PhoneVerificationVerify phonVeriService = new PhoneVerificationVerify(new AuthyApiClient(AUTHY_API_KEY));
+        PhoneVerificationOtp phonVeriService = new PhoneVerificationOtp(new AuthyApiClient(AUTHY_API_KEY));
         try {
+            System.out.println("++ Send the one time passcode (OTP) to: " + PARAM_PHONENUMBER);
+            if (!phonVeriService.sendOTP(PARAM_COUNTRYCODE, PARAM_PHONENUMBER, PARAM_VIA)) {
+                System.out.println("- Token not sent, exit this program.");
+                return;
+            }
             System.out.println("-------------------------");
             String thePrompt = "++ Enter the received OTP (or exit)> ";
             String paramToken = "";

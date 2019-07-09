@@ -86,10 +86,10 @@ try (CloseableHttpResponse response = client.execute(new HttpGet("http://host/st
                 .build()) {
             HttpPost httpcall = new HttpPost(theUrl);
             httpcall.setEntity(new UrlEncodedFormEntity(params));
-            //System.out.println("+ The request:     " + httpcall.getRequestLine());
+            System.out.println("+ The request:     " + httpcall.getRequestLine());
             UrlEncodedFormEntity aString = new UrlEncodedFormEntity(params);
-            // System.out.println("+ Headings:" + aString.toString());
-            // System.out.println("+ Params:" + params.toString());
+            System.out.println("+ Headings:" + aString.toString());
+            System.out.println("+ Params:" + params.toString());
             try (CloseableHttpResponse response = httpclient.execute(httpcall)) {
                 theResponse = response.getStatusLine().toString();
                 System.out.println("+ Response status: " + theResponse);

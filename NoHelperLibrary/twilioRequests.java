@@ -18,11 +18,14 @@ public class twilioRequests {
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN =  System.getenv("AUTH_TOKEN");
     
+    // private static final String SMS_REQUEST_URL = String.format("https://localhost:8000/2010-04-01/Accounts/%s/Messages.", ACCOUNT_SID);
     private static final String SMS_REQUEST_URL = String.format("https://api.twilio.com/2010-04-01/Accounts/%s/Messages.", ACCOUNT_SID);
     private static final HttpCalls HTTPS_REQUEST = new HttpCalls();
     private static final String HTTP_LOOKUP_HOST = "lookups.twilio.com";
-    private static final String HTTP_API_HOST = "api.twilio.com";
-    private static final int HTTPS_PORT = 443;
+    // private static final String HTTP_API_HOST = "api.twilio.com";
+    // private static final int HTTPS_PORT = 443;
+    private static final String HTTP_API_HOST = "localhost";
+    private static final int HTTPS_PORT = 8000;
 
     public String reqRecList(String theType) throws Exception {
         // https://api.twilio.com/2010-04-01/Accounts/ACxxxxxx/Recordings.json
@@ -150,7 +153,8 @@ public class twilioRequests {
     }
 
      public String reqSmsSend(String fromPhoneNumber, String toPhoneNumber, String paramMessage, String theType) throws Exception {
-        String theRequest = "https://" + HTTP_API_HOST + "/2010-04-01/Accounts/" + ACCOUNT_SID + "/Messages." + theType;
+        // String theRequest = "https://" + HTTP_API_HOST + "/2010-04-01/Accounts/" + ACCOUNT_SID + "/Messages." + theType;
+        String theRequest = "http://localhost:8000/2010-04-01/Accounts/" + ACCOUNT_SID + "/Messages." + theType;
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair("From", fromPhoneNumber));
         params.add(new BasicNameValuePair("To", toPhoneNumber));

@@ -1,7 +1,6 @@
 /*
  * Twilio: get message list.
  * https://www.twilio.com/docs/api/rest/message
- * Author: Stacy David Thurston
  */
 package messaging;
 

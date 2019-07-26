@@ -15,10 +15,11 @@ public class videoToken {
     public static void main(String[] args) throws Exception {
         // Create a VideoGrant
         final VideoGrant grant = new VideoGrant();
-        grant.setRoom("cool room");
+        // Optional, restrict the grant to specific room:
+        //      grant.setRoom("cool room");
         // Create an Access Token
         final AccessToken token = new AccessToken.Builder(ACCOUNT_SID, API_KEY_SID, API_KEY_SECRET)
-                .identity("example-user") // Set the Identity of this token
+                .identity("david") // Set the Identity of this token
                 .grant(grant) // Grant access to Video
                 .build();
         // Serialize the token as a JWT

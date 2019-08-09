@@ -67,6 +67,24 @@ public class SmsSendPost {
         return doPost(theRequest, params, credsProvider);
     }
 
+    private static void printMessageLog(String theResponse) throws Exception {
+        JSONObject theJsonResponse;
+        try {
+            theJsonResponse = new JSONObject(theResponse);
+        } catch (JSONException e) {
+            System.out.println("-- Failed to parse JSON response.");
+            return;
+        }
+        System.out.println("++ List: from, to, date, status, message");
+        System.out.println("+ "
+                + theJsonResponse.getString("from")
+                + ", " + theJsonResponse.getString("to")
+                + ", " + theJsonResponse.getString("date_updated")
+                + ", " + theJsonResponse.getString("status")
+                + ", " + theJsonResponse.getString("body")
+        );
+    }
+
     public static void main(String[] args) throws Exception {
 
         System.out.println("+++ Start class: " + THECLASSNAME);
@@ -87,21 +105,4 @@ public class SmsSendPost {
         System.out.println("+++ Exit class: " + THECLASSNAME);
     }
 
-    private static void printMessageLog(String theResponse) throws Exception {
-        JSONObject theJsonResponse;
-        try {
-            theJsonResponse = new JSONObject(theResponse);
-        } catch (JSONException e) {
-            System.out.println("-- Failed to parse JSON response.");
-            return;
-        }
-        System.out.println("++ List: from, to, date, status, message");
-        System.out.println("+ "
-                + theJsonResponse.getString("from")
-                + ", " + theJsonResponse.getString("to")
-                + ", " + theJsonResponse.getString("date_updated")
-                + ", " + theJsonResponse.getString("status")
-                + ", " + theJsonResponse.getString("body")
-        );
-    }
 }

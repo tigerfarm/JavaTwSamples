@@ -12,8 +12,8 @@ public class SetPhNum {
         System.out.println("+++ Update the SIP Domain Voice URL to set the caller id.");
         Domain domain = Domain.updater(System.getenv("SIP_DOMAIN_SID_TF"))
                 .setVoiceUrl("https://" + System.getenv("FUNCTIONS_HOST_TF")
-                       + "/sipoutbound?callerId=" + System.getenv("PHONE_NUMBER_WORK")
-//                      + "/sipoutbound?callerId=" + System.getenv("PHONE_NUMBER_HOME")
+//                       + "/sipoutbound?callerId=" + System.getenv("PHONE_NUMBER_WORK")
+                      + "/sipoutbound?callerId=" + System.getenv("PHONE_NUMBER_HOME")
                 ).update();
         System.out.println("+ SIP Domain: " + domain.getDomainName());
         System.out.println("+ Updated URL: " + domain.getVoiceUrl());

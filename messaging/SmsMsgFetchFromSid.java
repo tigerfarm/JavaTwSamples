@@ -15,7 +15,8 @@ public class SmsMsgFetchFromSid {
     public static void main(String[] args) {
         System.out.println("+++ Start.");
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        String messageSid = "SM5747ee62ac5265a11e3bd26e5f75e5df";
+        // String messageSid = "SM5747ee62ac5265a11e3bd26e5f75e5df"; // Success
+        String messageSid = "SM4a5c38ed7fd86aae9a350c61561708de"; // Has an error message
         System.out.println("++ Fetch log information for message SID: " + messageSid);
         Message message = Message.fetcher(messageSid).fetch();
         System.out.println("From, to, date sent, status, price, SID, text");

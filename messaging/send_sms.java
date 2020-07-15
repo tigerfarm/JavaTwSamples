@@ -6,14 +6,15 @@ import com.twilio.type.PhoneNumber;
 
 public class send_sms {
 
-    private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
-    private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
+    private static final String ACCOUNT_SID = System.getenv("MASTER_ACCOUNT_SID");
+    private static final String AUTH_TOKEN = System.getenv("MASTER_AUTH_TOKEN");
 
     public static void main(String[] args) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        String fromPhoneNumber = System.getenv("PHONE_NUMBER2");
-        String toPhoneNumber = System.getenv("PHONE_NUMBER3");
-        String theMsg = "This is the ship that made the Kessel Run in fourteen parsecs?";
+        String fromPhoneNumber = System.getenv("MASTER_PHONE_NUMBER_1");
+        String toPhoneNumber = System.getenv("MY_PHONE_NUMBER");
+        // String theMsg = "This is the ship that made the ¡Kessel Run in \nfourteen parsecs?";
+        String theMsg = "¡Hola Dave!\n\nHerr Spider\u00e1csMan.";
         Message message
                 = Message.creator(
                         new PhoneNumber(toPhoneNumber),

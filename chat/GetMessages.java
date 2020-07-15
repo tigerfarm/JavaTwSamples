@@ -22,7 +22,9 @@ public class GetMessages {
                 .setOrder(Message.OrderType.DESC) // DESC | ASC
                 .read();
         for (Message record : messages) {
-            System.out.println("+ " + record.getDateCreated() + " " + record.getFrom() + " " + record.getBody());
+            System.out.println("+ " 
+                    + record.getDateCreated() + " " 
+                    + record.getFrom() + " " + record.getBody());
         }
         System.out.println("+ End of list.");
         System.out.println("");

@@ -14,7 +14,8 @@ public class send_sms {
         String fromPhoneNumber = System.getenv("MASTER_PHONE_NUMBER_1");
         String toPhoneNumber = System.getenv("MY_PHONE_NUMBER");
         // String theMsg = "This is the ship that made the ¡Kessel Run in \nfourteen parsecs?";
-        String theMsg = "¡Hola Dave!\n\nHerr Spider\u00e1csMan.";
+        // String theMsg = "¡Hola Dave!\n\nHerr Spider\u00e1csMan.";   // works
+        String theMsg = "¡Hola Dave!\n\nHerr SpideráMan.";   // works
         Message message
                 = Message.creator(
                         new PhoneNumber(toPhoneNumber),

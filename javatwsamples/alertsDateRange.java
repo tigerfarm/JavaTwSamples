@@ -20,7 +20,10 @@ public class alertsDateRange {
                 .read();
         for (Alert record : alerts) {
             Alert alert = Alert.fetcher(record.getSid()).fetch();
-            System.out.println("+ SID: " + record.getSid() + " " + alert.getErrorCode());
+            System.out.println("+ SID: " + record.getSid()
+                    + " " + alert.getErrorCode()
+                    + " " + alert.getDateGenerated()
+            );
         }
     }
 }

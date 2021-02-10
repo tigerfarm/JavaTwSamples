@@ -21,9 +21,18 @@ public class alertsDateRange {
 
     public static void main(String[] args) {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        // GMT and format as YYYY-MM-DD or YYYY-MM-DDThh:mm:ssZ.
+        // DateTime.
+        // DateTime startTime = DateTime.parse("2021-01-05T23:24:10.000Z");
+        // DateTime endTime = DateTime.parse("2021-01-22T23:43:00.000Z");
+        // System.out.println(" startTime: " + startTime + ", endTime:" + endTime + "\n");
         ResourceSet<Alert> alerts = Alert.reader()
-                .setStartDate(DateTime.parse("2021-01-01T00:00:00.000Z"))
-                .setEndDate(DateTime.parse("2021-01-22T00:00:00.000Z"))
+                //.setStartDate("2021-01-05")
+                // .setEndDate("2021-02-01")
+                // .setStartDate(DateTime.parse("2021-02-08"))     // This works but only for the date.
+                // .setEndDate(DateTime.parse("2021-01-05"))       // This works but only for the date.
+                .setStartDate(DateTime.parse("2021-02-08T23:50:00.00Z"))    // This works but only for the date, not the time.
+                // .setEndDate(DateTime.parse("2021-01-05T23:42:00.000Z"))         // This works but only for the date, not the time.
                 // .setLogLevel("warning")
                 .limit(20)
                 .read();

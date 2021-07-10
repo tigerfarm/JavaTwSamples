@@ -1,6 +1,5 @@
 package javatwsamples;
 
-import java.util.Arrays;
 import java.util.Base64;
 
 public class base64sample {
@@ -18,21 +17,30 @@ public class base64sample {
                         String.format("%s:%s", System.getenv("MASTER_ACCOUNT_SID"), System.getenv("MASTER_AUTH_TOKEN")).getBytes()
                 )
         );
-        
+
         System.out.println("+ How to decode a string.");
         String bString = "abcdef";
         String bStringEcoded = Base64.getEncoder().encodeToString(bString.getBytes());
         System.out.println(
-                "++ Original string: " 
+                "++ Original string: "
                 + bString
-                + ", Encoded: " 
+                + ", Encoded: "
                 + bStringEcoded
                 + ", Decoded: "
                 + new String(Base64.getDecoder().decode(
                         bStringEcoded
                 ))
-                
         );
+
+        bStringEcoded = "YWJjZGVm";
+        System.out.println(
+                "++ Decoded string: '"
+                + new String(Base64.getDecoder().decode(
+                        bStringEcoded
+                ))
+                + "'"
+        );
+
         System.out.println("+++ Exit.");
     }
 }

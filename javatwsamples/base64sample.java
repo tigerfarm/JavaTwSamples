@@ -32,7 +32,7 @@ public class base64sample {
                 ))
         );
 
-        bStringEcoded = "YWJjZGVm";
+        bStringEcoded = "QUMwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDpmb29iYXI=";
         System.out.println(
                 "++ Decoded string: '"
                 + new String(Base64.getDecoder().decode(

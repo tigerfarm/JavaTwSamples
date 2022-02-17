@@ -8,7 +8,6 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
-
 public class ProxiedNoPkcvTwilioClientCreator {
     private String username;
     private String password;
@@ -57,7 +56,7 @@ public class ProxiedNoPkcvTwilioClientCreator {
     }
 
     /**
-     * Get the custom client or builds a new one
+     * Gets the custom client or builds a new one
      * @return a TwilioRestClient object
      */
     public TwilioRestClient getClient() {

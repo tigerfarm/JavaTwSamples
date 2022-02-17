@@ -1,4 +1,4 @@
-package proxy;
+package TwilioProxyService;
 
 import com.twilio.Twilio;
 import com.twilio.rest.proxy.v1.service.session.participant.MessageInteraction;

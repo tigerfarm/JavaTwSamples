@@ -1,11 +1,10 @@
-package proxy;
+package TwilioProxyService;
 
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.proxy.v1.service.Session;
-import com.twilio.rest.proxy.v1.service.session.Participant;
 
-public class list_service_sessions_participants {
+public class session_list {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
     private static final String AUTH_TOKEN = System.getenv("AUTH_TOKEN");
@@ -20,15 +19,8 @@ public class list_service_sessions_participants {
         System.out.println("+ List sessions for Proxy service: " + serviceSid);
         for (Session item : items) {
             System.out.println(
-                    "++ Sessions SID: " + item.getSid() + ", " + item.getUniqueName()
+                    "++ " + item.getSid() + ", " + item.getUniqueName()
             );
-            ResourceSet<Participant> Participants = Participant.reader(serviceSid, item.getSid())
-                    .read();
-            for (Participant itemParticipant : Participants) {
-                System.out.println(
-                        "+++ " + itemParticipant.getSid() + ", " + itemParticipant.getFriendlyName() + ", " + itemParticipant.getProxyIdentifier()
-                );
-            }
         }
 
     }

@@ -4,6 +4,7 @@ import com.twilio.Twilio;
 import com.twilio.exception.ApiException;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+
 public class send_sms_withErrorHandling {
 
     private static final String ACCOUNT_SID = System.getenv("ACCOUNT_SID");
@@ -15,19 +16,19 @@ public class send_sms_withErrorHandling {
         String toPhoneNumber = System.getenv("PHONE_NUMBER3");
         String theMsg = "This is the ship that made the Kessel Run in fourteen parsecs?";
         try {
-        Message message
-                = Message.creator(
-                        new PhoneNumber(toPhoneNumber),
-                        new PhoneNumber(fromPhoneNumber),
-                        theMsg
-                ).create();
-        // Immediately returned values:
-        System.out.print("+ Message SID: " + message.getSid());
-        System.out.print("+ from: " + message.getFrom());
-        System.out.print(", to: " + message.getTo());
-        System.out.print(", Status: " + message.getStatus());
-        System.out.print(", " + message.getBody());
-        System.out.println("");
+            Message message
+                    = Message.creator(
+                            new PhoneNumber(toPhoneNumber),
+                            new PhoneNumber(fromPhoneNumber),
+                            theMsg
+                    ).create();
+            // Immediately returned values:
+            System.out.print("+ Message SID: " + message.getSid());
+            System.out.print("+ from: " + message.getFrom());
+            System.out.print(", to: " + message.getTo());
+            System.out.print(", Status: " + message.getStatus());
+            System.out.print(", " + message.getBody());
+            System.out.println("");
         } catch (ApiException e) {
             // Error handling:
             System.out.println("- e.getCode() = " + e.getCode());

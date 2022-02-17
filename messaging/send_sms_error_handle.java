@@ -23,15 +23,16 @@ public class send_sms_error_handle {
                             theMsg
                     ).create();
             // Immediately returned values:
+            System.out.print("+ Message SID: " + message.getSid());
             System.out.print("+ from: " + message.getFrom());
-            System.out.print(", to: " + toPhoneNumber);
+            System.out.print(", to: " + message.getTo());
             System.out.print(", Status: " + message.getStatus());
-            System.out.print(", " + message.getSid());
             System.out.print(", " + message.getBody());
             System.out.println("");
         } catch (ApiException e) {
+            // Error handling:
             System.out.println("- e.getCode() = " + e.getCode());
-            System.out.println("- e.getCode() = " + e.getMessage());
+            System.out.println("- e.getMessage() = " + e.getMessage());
         }
     }
 }

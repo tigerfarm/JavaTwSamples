@@ -18,6 +18,7 @@ import org.apache.commons.codec.binary.Base64;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
 
 public class ProxiedPkcvTwilioClientCreator {
 
@@ -95,9 +96,23 @@ public class ProxiedPkcvTwilioClientCreator {
         PublicKey key = PublicKey.creator(
                 Base64.encodeBase64String(pk.getEncoded())
         ).setFriendlyName("Public Key").create(client);
-
         NewKey apiKey = NewKey.creator().create(client);
-
+        
+        /* Alternative
+        PrivateKey pk = null;
+        try {
+            pk = readFromPem();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+         */
+        
         // Switch to validation client as the default client
         TwilioRestClient validationClient = new TwilioRestClient.Builder(apiKey.getSid(), apiKey.getSecret())
                 .accountSid(ACCOUNT_SID)
@@ -108,4 +123,5 @@ public class ProxiedPkcvTwilioClientCreator {
         // return builder.httpClient(this.httpClient).build();
 
     }
+
 }

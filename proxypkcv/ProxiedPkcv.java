@@ -14,7 +14,7 @@ public class ProxiedPkcv {
         System.out.println("+++ Start.");
         
         ProxiedPkcvTwilioClientCreator clientCreator = new ProxiedPkcvTwilioClientCreator(
-                ACCOUNT_SID, AUTH_TOKEN, "InternetProxy.us.corp", 8080);
+                ACCOUNT_SID, AUTH_TOKEN, "InternetProxy.example.com", 8080);
 
         TwilioRestClient twilioRestClient = clientCreator.getClient();
         Twilio.setRestClient(twilioRestClient);

@@ -20,6 +20,7 @@ public class jSignatureValidationPost {
         Map<String, String> params = new HashMap<>();
         params.put("CallSid", "CA1234567890ABCDE");
         params.put("Caller", "+12349013030");
+        System.out.println("+ params: " + params);
         String twilioSignature = "0/KCTR6DLpKmkAf8muzZqo1nDgQ=";
         System.out.println(validator.validate(url, params, twilioSignature));
         System.out.println("+ Signature validation is: " + validator.validate(url, params, twilioSignature));

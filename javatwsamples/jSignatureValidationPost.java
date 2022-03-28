@@ -38,15 +38,4 @@ public class jSignatureValidationPost {
         System.out.println("+ Signature validation is: " + validator.validate(url, params, twilioSignature));
     }
 
-    public static Map<String, String> urlDecodeIntoMap(String requestString) {
-        Map<String, String> params = new HashMap<String, String>();
-        String[] parts = requestString.split("&");
-        for (String part : parts) {
-            String[] keyVal = part.split("="); // The equal separates key and values
-            if (keyVal.length > 1) {
-                params.put(keyVal[0], URLDecoder.decode(keyVal[1]));
-            }
-        }
-        return params;
-    }
 }

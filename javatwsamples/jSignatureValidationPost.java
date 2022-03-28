@@ -31,8 +31,8 @@ public class jSignatureValidationPost {
         // The actual Twilio request URL
         String url = "https://example.com/myapp";
         // Signature value from the Twilio HTTP request header.
-        // "x-twilio-signature":"0/KCTR6DLpKmkAf8muaAqo1nDgQ="
-        String twilioSignature = "0/KCTR6DLpKmkAf8muaAqo1nDgQ=";
+        // "x-twilio-signature":"0aKCTR6DLpKmkAf8muaAqo1nDgQ="
+        String twilioSignature = "0aKCTR6DLpKmkAf8muaAqo1nDgQ=";
         System.out.println("+ url :       " + url);
         System.out.println("+ signature : " + twilioSignature);
         System.out.println("+ params:     " + params);

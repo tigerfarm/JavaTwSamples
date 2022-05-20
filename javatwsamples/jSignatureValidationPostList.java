@@ -8,7 +8,7 @@ import com.twilio.security.RequestValidator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class jSignatureValidationPost1 {
+public class jSignatureValidationPostList {
 
     public static void main(String[] args) {
         // Initialize the validator

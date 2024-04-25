@@ -17,8 +17,8 @@ import org.apache.http.util.EntityUtils;
 
 public class httpGetBasicAuth {
 
-    private static final String ACCOUNT_SID = System.getenv("MASTER_ACCOUNT_SID");
-    private static final String AUTH_TOKEN = System.getenv("MASTER_AUTH_TOKEN");
+    private static final String ACCOUNT_SID = System.getenv("MAIN_ACCOUNT_SID");
+    private static final String AUTH_TOKEN = System.getenv("MAIN_AUTH_TOKEN");
 
     // private static final String SMS_REQUEST_URL = String.format("https://localhost:8000/2010-04-01/Accounts/%s/Messages.", ACCOUNT_SID);
     // private static final String SMS_REQUEST_URL = String.format("https://api.twilio.com/2010-04-01/Accounts/%s/Messages.", ACCOUNT_SID);

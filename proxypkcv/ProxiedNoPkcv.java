@@ -7,8 +7,8 @@ import com.twilio.type.PhoneNumber;
 
 public class ProxiedNoPkcv {
 
-    public static final String ACCOUNT_SID = System.getenv("MASTER_ACCOUNT_SID");
-    public static final String AUTH_TOKEN = System.getenv("MASTER_AUTH_TOKEN");
+    public static final String ACCOUNT_SID = System.getenv("MAIN_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("MAIN_AUTH_TOKEN");
 
     public static void main(String[] args) {
 

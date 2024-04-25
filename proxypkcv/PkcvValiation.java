@@ -2,6 +2,7 @@ package proxypkcv;
 
 // Documentation link for this sample:
 //  https://www.twilio.com/docs/iam/pkcv/quickstart
+// Requires the library: slf4j-simple-x.y.z.jar. I use: slf4j-simple-1.7.25.jar
 
 import com.twilio.http.TwilioRestClient;
 import com.twilio.http.ValidationClient;
@@ -19,8 +20,8 @@ import java.security.KeyPairGenerator;
 
 public class PkcvValiation {
 
-    public static final String ACCOUNT_SID = System.getenv("MASTER_ACCOUNT_SID");
-    public static final String AUTH_TOKEN = System.getenv("MASTER_AUTH_TOKEN");
+    public static final String ACCOUNT_SID = System.getenv("MAIN_ACCOUNT_SID");
+    public static final String AUTH_TOKEN = System.getenv("MAIN_AUTH_TOKEN");
 
     public static void main(String[] args) throws Exception {
 

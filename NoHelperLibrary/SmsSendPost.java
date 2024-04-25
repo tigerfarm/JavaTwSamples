@@ -31,21 +31,22 @@ public class SmsSendPost {
     private static final String THECLASSNAME = "SmsSendPost";
     private static final String PARAM_FROM_PHONENUMBER = System.getenv("PHONE_NUMBER1");
     private static final String PARAM_TO_PHONENUMBER = System.getenv("PHONE_NUMBER3");
-    private static final String PARAM_MESSAGE = "Test 2, from Stacy";
-    private static final String PARAM_RESPONSE_TYPE = "json";    // <json|xml>
+    private static final String PARAM_MESSAGE = "Test 3, from Stacy";
+    private static final String PARAM_RESPONSE_TYPE = "json";    // HTTP response type: <json|xml>
 
     private static String doPost(String theUrl, List<NameValuePair> params, CredentialsProvider credsProvider) throws Exception {
         String theResponse;
-        try (CloseableHttpClient httpclient = HttpClients.custom()
+        try ( CloseableHttpClient httpclient = HttpClients.custom()
                 .setDefaultCredentialsProvider(credsProvider)
                 .build()) {
             HttpPost httpcall = new HttpPost(theUrl);
             httpcall.setEntity(new UrlEncodedFormEntity(params));
-            //System.out.println("+ The request:     " + httpcall.getRequestLine());
+            System.out.println("+ theUrl request:     " + theUrl);
+            System.out.println("+ The request:   " + httpcall.getRequestLine());
             UrlEncodedFormEntity aString = new UrlEncodedFormEntity(params);
             // System.out.println("+ Headings:" + aString.toString());
-            // System.out.println("+ Params:" + params.toString());
-            try (CloseableHttpResponse response = httpclient.execute(httpcall)) {
+            System.out.println("+ Params:" + params.toString());
+            try ( CloseableHttpResponse response = httpclient.execute(httpcall)) {
                 theResponse = response.getStatusLine().toString();
                 System.out.println("+ Response status: " + theResponse);
                 theResponse = EntityUtils.toString(response.getEntity());
@@ -60,10 +61,15 @@ public class SmsSendPost {
         params.add(new BasicNameValuePair("From", fromPhoneNumber));
         params.add(new BasicNameValuePair("To", toPhoneNumber));
         params.add(new BasicNameValuePair("Body", paramMessage));
+        System.out.println("++ params: " + params);
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
         credsProvider.setCredentials(
                 new AuthScope(HTTP_API_HOST, HTTPS_PORT),
                 new UsernamePasswordCredentials(ACCOUNT_SID, AUTH_TOKEN));
+        //
+        // Override the URL for testing:
+        // theRequest = "https://echo.herokuapp.com/echo/";
+        //
         return doPost(theRequest, params, credsProvider);
     }
 

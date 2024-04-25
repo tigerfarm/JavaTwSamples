@@ -4,11 +4,12 @@
  */
 package messaging;
 
-import org.joda.time.DateTime;
 import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class SmsMsgListDate1 {
 
@@ -18,12 +19,12 @@ public class SmsMsgListDate1 {
     public static void main(String[] args) {
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-        // ResourceSet<Message> messages = Message.reader().read();
+        ZonedDateTime theZonedDateTime = ZonedDateTime.of(2022, 12, 1, 0, 0, 0, 0, ZoneId.of("UTC"));
         ResourceSet<Message> messages = Message.reader()
                 .setTo(new PhoneNumber(System.getenv("MASTER_PHONE_NUMBER_2")))
-                .setDateSent(DateTime.parse("2020-07-17T00:00:00.000Z"))
+                .setDateSent(theZonedDateTime)
                 .read();
-        System.out.println("++ List inbound messages: " + DateTime.now());
+        // System.out.println("++ List inbound messages: " + DateTime.now());
         // messages = Message.reader().read();
         for (Message message : messages) {
             System.out.print("+ from:" + message.getFrom());

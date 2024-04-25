@@ -8,7 +8,8 @@ import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import org.joda.time.DateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class SmsMsgListDate {
 
@@ -24,9 +25,10 @@ public class SmsMsgListDate {
 
         String thisPhoneNumber = System.getenv("MASTER_PHONE_NUMBER_2");
         System.out.println("++ List inbound messages: " + thisPhoneNumber);
+        ZonedDateTime theZonedDateTime = ZonedDateTime.of(2022, 12, 1, 0, 0, 0, 0, ZoneId.of("UTC"));
         messages = Message.reader()
                 .setTo(new PhoneNumber(thisPhoneNumber))
-                .setDateSent(DateTime.parse("2020-07-17T00:00:00.000Z"))
+                .setDateSent(theZonedDateTime)
                 .read();
         for (Message message : messages) {
             System.out.print("+ from:" + message.getFrom());
@@ -43,7 +45,7 @@ public class SmsMsgListDate {
         System.out.println("++ List outbound messages: " + thisPhoneNumber);
         messages = Message.reader()
                 .setFrom(new PhoneNumber(thisPhoneNumber))
-                .setDateSent(DateTime.parse("2020-07-17"))
+                .setDateSent(theZonedDateTime)
                 .read();
         for (Message message : messages) {
             System.out.print("+ from:" + message.getFrom());

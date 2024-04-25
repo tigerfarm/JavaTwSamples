@@ -8,7 +8,6 @@ import com.twilio.Twilio;
 import com.twilio.base.ResourceSet;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import org.joda.time.DateTime;
 
 public class SmsMsgListFromTo {
 
@@ -29,7 +28,6 @@ public class SmsMsgListFromTo {
         messages = Message.reader()
                 .setFrom(new PhoneNumber(fromPhoneNumber))
                 .setTo(new PhoneNumber(toPhoneNumber))
-                // .setDateSent(DateTime.parse("2018-07-02"))
                 .read();
         for (Message message : messages) {
             System.out.print("+ from:" + message.getFrom());
